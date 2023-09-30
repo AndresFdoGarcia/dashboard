@@ -1,6 +1,3 @@
-# Repositorio base del Curso de Introducción a React.js en Platzi
-
-
 La rama principal contiene el código con el que eempezamos el curso. En las demás ramas encontrarás el código de las siguientes clases y finalmente el deploy de la aplicación.
 
 ¡Mucha suerte aprendiendo React! #NuncaParesDeAprender
