@@ -1,25 +1,34 @@
 import React from 'react';
 import { TodoCounter } from './TodoCounter';
 import { TodoSearch } from './TodoSearch';
-//import { TodoItem } from './TodoItem';
+import { TodoItem } from './TodoItem';
 import { CreateTodobutton } from './TodoButton';
 import { TodoContainer } from './TodoContainer';
+import { Setfooter } from './footer';
+import { useState } from "react"
 
-
-const defaultTodos=[
-  {id: 1,title:"Tarea 1",text: "Cortar cebolla",list: 1},
-  {id: 2,title:"Tarea 2",text: "Asar carne",list: 2},
-  {id: 3,title:"Tarea 3",text: "Prepara jugo",list: 1}  
-];
+const defaultTodos=[];
 
 
 function App() {
+
+  const [tasks, setTasks] = useState(defaultTodos);
+  const [btnaddtask,setbtnAddtask]=useState(false);  
+  
+
   return (
     <React.Fragment>
-      <TodoCounter completed={16} total={25} />
-      <TodoSearch />      
-        <TodoContainer tasks={defaultTodos} />
-      <CreateTodobutton />      
+      <div className='mastercontainer'>
+        <TodoCounter />
+        <TodoSearch />
+        <div className='containerFull'>
+          <div className='box'><CreateTodobutton showpopup={btnaddtask} setAddtask={setbtnAddtask}/></div>
+          <div className='box'><TodoContainer key={1} tasks={tasks} setTasks={setTasks} /></div>   
+        </div>        
+        {btnaddtask && <TodoItem key={2} tasks={tasks} setTasks={setTasks} setbtnAddtask={setbtnAddtask} />}
+        <Setfooter />
+      </div>
+      
     </React.Fragment>
   );
 }

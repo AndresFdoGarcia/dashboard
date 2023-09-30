@@ -1,4 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
 h1{
-    font-size: 24px;
-    background-color: aquamarine !important;
+    font-size: 40px;
+    font-family: 'Concert One';    
+    color: azure;   
+}
+.Dheader{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    min-height: 100px;
+    background-color: #4c0bce;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
 }
