@@ -1,4 +1,4 @@
-import './Styles/Footer.css';
+import '../Styles/Footer.css';
 
 function Setfooter(){
     return(

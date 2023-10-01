@@ -1,34 +1,36 @@
 import React from 'react';
-import { TodoCounter } from './TodoCounter';
-import { TodoSearch } from './TodoSearch';
-import { TodoItem } from './TodoItem';
-import { CreateTodobutton } from './TodoButton';
-import { TodoContainer } from './TodoContainer';
-import { Setfooter } from './footer';
+import { TodoCounter } from './Components/TodoCounter';
+import { TodoItem } from './Components/TodoItem';
+import { CreateTodobutton } from './Components/TodoButton';
+import { TodoContainer } from './Components/TodoContainer';
+import { Setfooter } from './Components/footer';
 import { useState } from "react"
+import{TasksContextProvider,TasksContext} from './Context/ContextTask';
+import {ModalContextProvider} from './Context/ModalContext'
+import { ModalData } from './Components/ModalData';
+function App() { 
 
-const defaultTodos=[];
-
-
-function App() {
-
-  const [tasks, setTasks] = useState(defaultTodos);
   const [btnaddtask,setbtnAddtask]=useState(false);  
-  
 
   return (
     <React.Fragment>
-      <div className='mastercontainer'>
-        <TodoCounter />
-        <TodoSearch />
-        <div className='containerFull'>
-          <div className='box'><CreateTodobutton showpopup={btnaddtask} setAddtask={setbtnAddtask}/></div>
-          <div className='box'><TodoContainer key={1} tasks={tasks} setTasks={setTasks} /></div>   
-        </div>        
-        {btnaddtask && <TodoItem key={2} tasks={tasks} setTasks={setTasks} setbtnAddtask={setbtnAddtask} />}
-        <Setfooter />
-      </div>
-      
+    <ModalContextProvider>
+    <TasksContextProvider>
+    <TasksContext.Consumer>
+      {({tasks,saveTodos})=>(
+        <div className='mastercontainer'>
+          <TodoCounter />          
+          <div className='containerFull'>
+            <div className='box' id='box1side'><CreateTodobutton showpopup={btnaddtask} setAddtask={setbtnAddtask}/></div>
+            <div className='box'><TodoContainer tasks={tasks} setTasks={saveTodos} /></div>   
+          </div>                       
+          {btnaddtask && <TodoItem tasks={tasks} setTasks={saveTodos} setbtnAddtask={setbtnAddtask} />}        
+        </div>
+      )}</TasksContext.Consumer>      
+    </TasksContextProvider>
+      <Setfooter />
+      <ModalData />
+    </ModalContextProvider> 
     </React.Fragment>
   );
 }

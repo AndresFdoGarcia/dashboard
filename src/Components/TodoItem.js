@@ -1,4 +1,4 @@
-import './Styles/TodoItem.css';
+import '../Styles/TodoItem.css';
 import { useState } from "react"
 
 function TodoItem({tasks,setTasks,setbtnAddtask}){
@@ -7,11 +7,11 @@ function TodoItem({tasks,setTasks,setbtnAddtask}){
   const [person,setperson] = useState('');
   const [date,setdate] = useState('');
   const [description,setDescription]=useState('');
-  const [copyarraybase, setCopyarraybase]=useState(tasks);
+  const [copyarraybase, setCopyarraybase]=useState(tasks);  
   
 
   const CreateTask = (evt) =>{    
-    const medio = {id: ((tasks.length)+1),author: person, title:title,description: description, date:date,list: 1};    
+    const medio = {id: ((tasks.length)+1),author: person, title:title,description: description, date:date,list: 1,priority:false};    
     setCopyarraybase(copyarraybase.push(medio));    
     setTasks(copyarraybase);
     setbtnAddtask(false);
@@ -36,15 +36,7 @@ function TodoItem({tasks,setTasks,setbtnAddtask}){
               <label htmlFor='description'>Descripción de la tarea</label>
               <textarea type='text' maxLength={300} onChange={ev => setDescription(ev.target.value)}></textarea>
               <label htmlFor='date'>Fecha límite</label> 
-              <input type='date' placeholder='dd/mm/yy' onChange={ev => setdate(ev.target.value)}></input>
-              <div className='labimport'>
-                <div className='titleswitch'>Importante</div>
-                <label className="switch">
-                  <input type="checkbox"></input>
-                  <span className="slider round"></span>
-                </label>              
-              </div>
-              
+              <input type='date' placeholder='dd/mm/yy' onChange={ev => setdate(ev.target.value)}></input>        
               <button>Guardar</button>
             </form>
           </div>

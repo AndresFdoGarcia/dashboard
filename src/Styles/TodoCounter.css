@@ -9,8 +9,8 @@ h1{
     flex-direction: row;
     text-align: center;
     justify-content: center;
-    min-height: 100px;
-    background-color: #4c0bce;
+    min-height: 70px;
+    background-image: radial-gradient(circle, #4c0bce, #591cd7, #6528e1, #7134ea, #7c3ff4);
     align-items: center;
     justify-content: center;
     padding: 10px;

@@ -10,7 +10,7 @@
     align-items: center;
     justify-content: center;
     min-height: 50px;
-    background-color: #4c0bce;
+    background-image: radial-gradient(circle, #4c0bce, #591cd7, #6528e1, #7134ea, #7c3ff4);
     color: azure;  
 
     .tfinal{    

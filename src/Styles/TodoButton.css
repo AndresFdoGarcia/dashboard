@@ -1,5 +1,10 @@
+.Containerb{
+    
+    height: 80%;
+}
 li{
     font-size: medium;
+    padding: 10px;
 }
 .tdo{
     color: #e03838;
@@ -9,4 +14,85 @@ li{
     color: #47b85b;
     font-weight: bold;
 }
+.newdo{
+    color: #4a7aff;
+    font-weight: bold;
+}
+img{
+    height: 300px;
+    width: 300px;
+    margin-left: 20px;
+}
+.btncontaineradd{
+    position: absolute;
+    left: 400px;
+    bottom: 180px;
+}
 
+.btn {
+    text-transform: uppercase;
+    text-decoration: solid;
+    padding: 15px 20px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+    background-color: #4a7aff;
+    color: #fff;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: #4a7aff;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInBottom 5s ease-out;
+    animation-fill-mode: backwards;
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+  
+  

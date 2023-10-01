@@ -25,7 +25,8 @@ h1, h1, h3, h4, p{
   grid-template-columns: 35% auto;
   gap: 20px;
   padding: 1em;
-  background-color: #f2f2f3;
+  height: 80%;  
+  background: #fff;
 }
 .drag-and-drop{
   display: flex;
@@ -44,6 +45,8 @@ h1, h1, h3, h4, p{
 }
 .column--1{
   border-color: #4a7aff;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0); 
 }
 
 .column--1 .title{
@@ -62,16 +65,12 @@ h1, h1, h3, h4, p{
     border: none;  
     background: none;
     transition: -3s ease all;
-    border-radius: 5px;
+    border-radius: 4px;
     color: #4a7aff;
 
     &:hover{
         background: #4a7aff;
         color: #fff;
-    }
-    svg{
-        width: 100%;
-        height: 100%;
     }
   }
 }
@@ -79,21 +78,14 @@ h1, h1, h3, h4, p{
 .column--2{
   border-color: #e03838;
   -webkit-transform: translateZ(0);
-  transform: translateZ(0); 
+  transform: translateZ(0);   
 }
 
 .column--2 .title{
   color: #e03838;  
 }
-.column--2 .dd-element:hover{
-  -webkit-animation-name: buzz;
-  animation-name: buzz;
-  -webkit-animation-duration: 0.15s;
-  animation-duration: 0.15s;
-  -webkit-animation-timing-function: linear;
-  animation-timing-function: linear;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
+.column--2 .dd-element{
+  position: relative;  
 }
 
 .column--3{
@@ -122,9 +114,33 @@ h1, h1, h3, h4, p{
   background-color: #FFFFFF;
   border-radius: 8px;
   padding: 10px 10px;
-  cursor: pointer;
+  cursor: grab;
   color: #5b5b73;
   box-shadow: 0 8px 6px -6px black;
+
+  &:active{
+    cursor: grabbing;
+  }
+}
+.column--1 .dd-element.important:hover{
+  -webkit-animation-name: buzz;
+  animation-name: buzz;
+  -webkit-animation-duration: 0.15s;
+  animation-duration: 0.15s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+.column--2 .dd-element.important:hover{
+  -webkit-animation-name: buzz;
+  animation-name: buzz;
+  -webkit-animation-duration: 0.15s;
+  animation-duration: 0.15s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
 }
 
 .dd-element .body{
@@ -160,4 +176,84 @@ h1, h1, h3, h4, p{
     -webkit-transform: translateX(-3px) rotate(-2deg);
     transform: translateX(-3px) rotate(-2deg);
   }
+}
+.column--1 button.edit, .column--2 button.edit{
+  position: absolute;
+  top: 0px;
+  right: 25px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border: none;  
+  background: none;
+  transition: -3s ease all;
+  border-radius: 4px;  
+}
+.column--1 button.edit{
+  color: #4a7aff;
+
+  &:hover{
+      background: #4a7aff;
+      color: #fff;
+  }
+}
+.column--2 button.edit{
+  color: #e03838;
+
+  &:hover{
+      background: #e03838;
+      color: #fff;
+  }
+}
+
+.fakeheader{
+  display: block;
+  width: 100%;
+  height: 15px;
+}
+.column--1 button.importanticon{
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border: none;  
+  background: none;
+  transition: -3s ease all;
+  border-radius: 4px;
+  color: #4a7aff;
+  &:hover{
+    background: #4a7aff;
+    color: #fff;
+}
+}
+.column--2 button.importanticon{
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border: none;  
+  background: none;
+  transition: -3s ease all;
+  border-radius: 4px;
+  color: #e03838;
+  &:hover{
+    background: #e03838;
+    color: #fff;
+}
+}
+  
+.column--1 button.importanticon.activated{
+  background: #4a7aff;
+  color: #fff;
+}
+.column--2 button.importanticon.activated{
+  background: #e03838;
+  color: #fff;
+}
+#box1side{
+  position:relative;
 }
