@@ -1,6 +1,7 @@
-La rama principal contiene el código con el que eempezamos el curso. En las demás ramas encontrarás el código de las siguientes clases y finalmente el deploy de la aplicación.
+## Dashboard
+Es un demo de una aplicación para le manejo de tareas y sus estados.
 
-¡Mucha suerte aprendiendo React! #NuncaParesDeAprender
+Hecho en React !!
 
 ## Getting Started with Create React App
 
